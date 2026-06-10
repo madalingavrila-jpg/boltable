@@ -2,11 +2,10 @@
   "name": "sfood",
   "version": "0.1.0",
   "private": true,
-  "description": "Bolt Food Sales Dashboard — Boltable (sfood.boltable.eu)",
+  "description": "Bolt Food Sales Dashboard \u2014 Boltable (sfood.boltable.eu)",
   "type": "module",
   "engines": {
-    "node": ">=22",
-    "npm": ">=11.10.0"
+    "node": ">=22"
   },
   "scripts": {
     "build": "NODE_ENV=production next build && tsc -p tsconfig.server.json",
