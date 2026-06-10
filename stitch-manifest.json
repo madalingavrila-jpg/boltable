@@ -1,0 +1,18 @@
+{
+  "project": {
+    "id": "16237528128557926652",
+    "title": "Bolt Food Sales Dashboard",
+    "createTime": "2026-06-10T11:45:04.002680Z",
+    "updateTime": "2026-06-10T11:51:43.862391Z",
+    "deviceType": "DESKTOP"
+  },
+  "screen": {
+    "id": "9df34449660e4c2bb96a597cf28f5d15",
+    "title": "Sales Dashboard Overview",
+    "prompt": "Bolt Food Sales Ops Dashboard - Main Overview. Features: Metric cards (Total Revenue, Active Restaurants, New Leads, Growth %), a large interactive chart for weekly revenue, a 'Top Performing Cities' table, and a 'Recent Activities' feed. Sidebar navigation active on 'Dashboard'. Professional, green-accented UI.",
+    "width": "2560",
+    "height": "2710",
+    "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzRhYjk1MDRmOGZjYzQ3ZGRiMjQxYmU2Yzk2YzM5NTgzEgsSBxDiju_b3hsYAZIBJAoKcHJvamVjdF9pZBIWQhQxNjIzNzUyODEyODU1NzkyNjY1Mg&filename=&opi=89354086",
+    "screenshotUrl": "https://lh3.googleusercontent.com/aida/AP1WRLvJztLCX8aqkTqLWn3bOseywuaDOs7PQeDjyPPZmuuG_Iz5zL3xMwKzYjC1XwULqDy-VXrYwKYHcYsUhA5Nb7fcxvxh7J0EsOA0jE2O3L9Gyl3EYnd8fJCM_tGGJrH9AyotDop6lgYOzf0k_jzySHLIMZ1k-UnMRPatOzQp_mNonx4oFJBggVQUa8SabYDlECkTvudUTd7_P7m8T5PIFeEKUci4g7e-s2qPe5ZEiic5w2fMou97_Zz1Mgo"
+  }
+}
