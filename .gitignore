@@ -17,6 +17,9 @@
 
 # production
 /build
+/server/dist
+/types/*.js
+/types/*.js.map
 
 # misc
 .DS_Store
