@@ -1,8 +1,7 @@
 import { config as loadEnv } from "dotenv";
 import path from "node:path";
-import { fileURLToPath } from "node:url";
 
-const rootDir = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
+const rootDir = process.cwd();
 
 loadEnv({ path: path.join(rootDir, ".env") });
 loadEnv({ path: path.join(rootDir, ".env.local"), override: true });
