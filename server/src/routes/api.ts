@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { lookerConfigured, salesforceConfigured } from "../config.js";
+import { config } from "../config.js";
 import { loadDashboardModel } from "../services/dashboard.js";
 
 export const apiRouter = Router();
@@ -14,10 +14,10 @@ apiRouter.get("/status", (_req, res) => {
   res.json({
     ok: true,
     app: "sfood",
-    lookerConfigured: lookerConfigured(),
-    salesforceConfigured: salesforceConfigured(),
+    dataSource: config.dashboardSheetUrl ? "sheet" : "json",
+    dataPath: config.dashboardSheetUrl || "data/dashboard.json",
     dataFlow:
-      "Looker (curated.fact_order_delivery + dim_city) + Salesforce (Lead, Account) → /api/dashboard",
+      "Cursor (Looker + Salesforce MCP) → data/dashboard.json → /api/dashboard",
   });
 });
 

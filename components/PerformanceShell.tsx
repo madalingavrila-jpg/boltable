@@ -1,21 +1,23 @@
 "use client";
 
-import { MetricCards } from "@/components/MetricCards";
-import { RevenueChart } from "@/components/RevenueChart";
-import { ActivitiesFeed } from "@/components/ActivitiesFeed";
-import { CitiesTable } from "@/components/CitiesTable";
 import { PageHeader } from "@/components/PageHeader";
 import { DataAlert } from "@/components/DataAlert";
+import {
+  PerformanceKpis,
+  CategoryBreakdown,
+  RegionPerformance,
+} from "@/components/PerformancePage";
+import { RevenueChart } from "@/components/RevenueChart";
 import { useDashboard } from "@/lib/useDashboard";
 
-export function DashboardShell() {
+export function PerformanceShell() {
   const { model, error, loading, sourceHint } = useDashboard();
 
   return (
     <div className="mx-auto max-w-[1400px] space-y-md">
       <PageHeader
-        title="Bolt Food Sales Overview"
-        subtitle="Real-time performance tracking for Enterprise accounts."
+        title="Performance Analytics"
+        subtitle="Deep-dive into GMV, conversion, and regional velocity metrics."
         updatedAt={model?.updatedAt}
         loading={loading}
         actions={
@@ -24,19 +26,19 @@ export function DashboardShell() {
               type="button"
               className="rounded-md bg-white px-sm py-xs text-label-md font-label-md font-bold text-primary shadow-sm"
             >
-              24h
-            </button>
-            <button
-              type="button"
-              className="rounded-md px-sm py-xs text-label-md font-label-md text-on-surface-variant transition-all hover:bg-white/50"
-            >
               7d
             </button>
             <button
               type="button"
-              className="rounded-md px-sm py-xs text-label-md font-label-md text-on-surface-variant transition-all hover:bg-white/50"
+              className="rounded-md px-sm py-xs text-label-md font-label-md text-on-surface-variant hover:bg-white/50"
             >
               30d
+            </button>
+            <button
+              type="button"
+              className="rounded-md px-sm py-xs text-label-md font-label-md text-on-surface-variant hover:bg-white/50"
+            >
+              90d
             </button>
           </div>
         }
@@ -44,14 +46,19 @@ export function DashboardShell() {
 
       <DataAlert error={error} sourceHint={sourceHint} />
 
-      <MetricCards metrics={model?.metrics} loading={loading} />
+      <PerformanceKpis kpis={model?.performance.kpis} loading={loading} />
 
       <div className="grid grid-cols-1 gap-md xl:grid-cols-3">
-        <RevenueChart data={model?.weeklyRevenue} loading={loading} />
-        <ActivitiesFeed activities={model?.activities} loading={loading} />
+        <div className="xl:col-span-2">
+          <RevenueChart data={model?.weeklyRevenue} loading={loading} />
+        </div>
+        <CategoryBreakdown
+          categories={model?.performance.categories}
+          loading={loading}
+        />
       </div>
 
-      <CitiesTable cities={model?.cities} loading={loading} />
+      <RegionPerformance regions={model?.performance.regions} loading={loading} />
     </div>
   );
 }

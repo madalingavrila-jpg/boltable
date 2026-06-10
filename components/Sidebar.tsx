@@ -1,16 +1,27 @@
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
 const navItems = [
-  { icon: "dashboard", label: "Dashboard", active: true },
-  { icon: "storefront", label: "Partners", active: false },
-  { icon: "query_stats", label: "Performance", active: false },
-  { icon: "person_add", label: "Onboarding", active: false },
+  { icon: "dashboard", label: "Dashboard", href: "/" },
+  { icon: "storefront", label: "Partners", href: "/partners" },
+  { icon: "query_stats", label: "Performance", href: "/performance" },
+  { icon: "person_add", label: "Onboarding", href: "/onboarding" },
 ];
 
-const bottomItems = [
-  { icon: "settings", label: "Settings", variant: "default" as const },
-  { icon: "logout", label: "Logout", variant: "error" as const },
-];
+const bottomItems = [{ icon: "settings", label: "Settings", href: "/settings" }];
+
+function isActive(pathname: string, href: string): boolean {
+  if (href === "/") {
+    return pathname === "/";
+  }
+  return pathname.startsWith(href);
+}
 
 export function Sidebar() {
+  const pathname = usePathname();
+
   return (
     <nav className="fixed left-0 top-0 z-50 flex h-full w-[280px] flex-col border-r border-outline-variant bg-surface-container-lowest py-md px-xs">
       <div className="mb-lg px-sm">
@@ -29,46 +40,52 @@ export function Sidebar() {
         </div>
       </div>
 
-      <button
-        type="button"
+      <Link
+        href="/onboarding"
         className="mx-xs mb-lg flex scale-95 items-center justify-center gap-xs rounded-lg bg-primary-container px-md py-sm text-label-md font-label-md text-on-primary-container transition-all hover:opacity-90 active:scale-100"
       >
         <span className="material-symbols-outlined">person_add</span>
         New Lead
-      </button>
+      </Link>
 
       <div className="flex-1 space-y-1">
-        {navItems.map((item) => (
-          <a
-            key={item.label}
-            href="#"
-            className={
-              item.active
-                ? "mx-xs my-1 flex scale-95 items-center gap-sm rounded-lg bg-primary-container px-md py-sm text-label-md font-label-md text-on-primary-container transition-transform active:scale-100"
-                : "mx-xs my-1 flex scale-95 items-center gap-sm rounded-lg px-md py-sm text-label-md font-label-md text-on-surface-variant transition-all hover:bg-surface-container active:scale-100"
-            }
-          >
-            <span className="material-symbols-outlined">{item.icon}</span>
-            {item.label}
-          </a>
-        ))}
+        {navItems.map((item) => {
+          const active = isActive(pathname, item.href);
+          return (
+            <Link
+              key={item.label}
+              href={item.href}
+              className={
+                active
+                  ? "mx-xs my-1 flex scale-95 items-center gap-sm rounded-lg bg-primary-container px-md py-sm text-label-md font-label-md text-on-primary-container transition-transform active:scale-100"
+                  : "mx-xs my-1 flex scale-95 items-center gap-sm rounded-lg px-md py-sm text-label-md font-label-md text-on-surface-variant transition-all hover:bg-surface-container active:scale-100"
+              }
+            >
+              <span className="material-symbols-outlined">{item.icon}</span>
+              {item.label}
+            </Link>
+          );
+        })}
       </div>
 
       <div className="mt-auto border-t border-outline-variant pt-md">
-        {bottomItems.map((item) => (
-          <a
-            key={item.label}
-            href="#"
-            className={
-              item.variant === "error"
-                ? "mx-xs my-1 flex items-center gap-sm rounded-lg px-md py-sm text-label-md font-label-md text-error transition-all hover:bg-error-container/20"
-                : "mx-xs my-1 flex items-center gap-sm rounded-lg px-md py-sm text-label-md font-label-md text-on-surface-variant transition-all hover:bg-surface-container"
-            }
-          >
-            <span className="material-symbols-outlined">{item.icon}</span>
-            {item.label}
-          </a>
-        ))}
+        {bottomItems.map((item) => {
+          const active = isActive(pathname, item.href);
+          return (
+            <Link
+              key={item.label}
+              href={item.href}
+              className={
+                active
+                  ? "mx-xs my-1 flex items-center gap-sm rounded-lg bg-primary-container px-md py-sm text-label-md font-label-md text-on-primary-container"
+                  : "mx-xs my-1 flex items-center gap-sm rounded-lg px-md py-sm text-label-md font-label-md text-on-surface-variant transition-all hover:bg-surface-container"
+              }
+            >
+              <span className="material-symbols-outlined">{item.icon}</span>
+              {item.label}
+            </Link>
+          );
+        })}
       </div>
     </nav>
   );

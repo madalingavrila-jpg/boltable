@@ -1,0 +1,241 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sfood.boltable.eu/data/dashboard.schema.json",
+  "title": "Sfood Dashboard Data",
+  "description": "Static dashboard payload updated via Cursor (Looker + Salesforce MCP) and committed to the repo.",
+  "type": "object",
+  "required": ["updatedAt", "metrics", "weeklyRevenue", "topCities", "recentActivities"],
+  "properties": {
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO-8601 timestamp when this snapshot was generated."
+    },
+    "metrics": {
+      "type": "object",
+      "required": [
+        "totalRevenue",
+        "activePartners",
+        "activeCities",
+        "newLeadsMtd",
+        "marketGrowth"
+      ],
+      "properties": {
+        "totalRevenue": {
+          "type": "object",
+          "required": ["value", "currency", "changePercent", "period"],
+          "properties": {
+            "value": { "type": "number" },
+            "previousValue": { "type": "number" },
+            "currency": { "type": "string", "enum": ["EUR"] },
+            "changePercent": { "type": "number" },
+            "period": { "type": "string", "example": "30d" }
+          }
+        },
+        "activePartners": {
+          "type": "object",
+          "required": ["value", "changePercent"],
+          "properties": {
+            "value": { "type": "number" },
+            "previousValue": { "type": "number" },
+            "changePercent": { "type": "number" }
+          }
+        },
+        "activeCities": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Count of cities with active food delivery."
+        },
+        "newLeadsMtd": {
+          "type": "object",
+          "required": ["value", "changePercent"],
+          "properties": {
+            "value": { "type": "number" },
+            "previousValue": { "type": "number" },
+            "changePercent": { "type": "number" }
+          }
+        },
+        "marketGrowth": {
+          "type": "object",
+          "required": ["value"],
+          "properties": {
+            "value": { "type": "number", "description": "30-day GMV growth percent." }
+          }
+        }
+      }
+    },
+    "weeklyRevenue": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["day", "value"],
+        "properties": {
+          "day": { "type": "string", "description": "Short weekday label (Mon, Tue, …)." },
+          "date": { "type": "string", "format": "date" },
+          "value": { "type": "number", "description": "Daily GMV in EUR." }
+        }
+      }
+    },
+    "topCities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["city", "revenue", "growthPercent"],
+        "properties": {
+          "city": { "type": "string" },
+          "country": { "type": "string" },
+          "revenue": { "type": "number" },
+          "growthPercent": { "type": "number" },
+          "avgOrder": { "type": "number" }
+        }
+      }
+    },
+    "recentActivities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type", "title", "time"],
+        "properties": {
+          "type": { "type": "string", "enum": ["lead", "account"] },
+          "title": { "type": "string" },
+          "time": { "type": "string", "format": "date-time" },
+          "icon": { "type": "string" },
+          "meta": { "type": "string" }
+        }
+      }
+    },
+    "partners": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "city", "country", "revenue30d", "orders30d", "rating", "status", "tier"],
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "city": { "type": "string" },
+          "country": { "type": "string" },
+          "revenue30d": { "type": "number" },
+          "orders30d": { "type": "number" },
+          "rating": { "type": "number" },
+          "status": { "type": "string", "enum": ["active", "paused", "new"] },
+          "tier": { "type": "string", "enum": ["enterprise", "growth", "standard"] },
+          "cuisine": { "type": "string" }
+        }
+      }
+    },
+    "performance": {
+      "type": "object",
+      "properties": {
+        "kpis": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["label", "value", "unit", "icon"],
+            "properties": {
+              "label": { "type": "string" },
+              "value": { "type": "number" },
+              "previousValue": { "type": "number" },
+              "unit": { "type": "string", "enum": ["eur", "percent", "minutes", "count"] },
+              "icon": { "type": "string" }
+            }
+          }
+        },
+        "categories": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name", "revenue", "sharePercent"],
+            "properties": {
+              "name": { "type": "string" },
+              "revenue": { "type": "number" },
+              "sharePercent": { "type": "number" }
+            }
+          }
+        },
+        "regions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name", "revenue", "growthPercent", "partners"],
+            "properties": {
+              "name": { "type": "string" },
+              "revenue": { "type": "number" },
+              "growthPercent": { "type": "number" },
+              "partners": { "type": "number" }
+            }
+          }
+        }
+      }
+    },
+    "onboarding": {
+      "type": "object",
+      "properties": {
+        "pipeline": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["stage", "count", "changePercent"],
+            "properties": {
+              "stage": { "type": "string" },
+              "count": { "type": "number" },
+              "changePercent": { "type": "number" }
+            }
+          }
+        },
+        "leads": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "company", "city", "status", "createdAt", "owner", "priority"],
+            "properties": {
+              "id": { "type": "string" },
+              "company": { "type": "string" },
+              "city": { "type": "string" },
+              "status": { "type": "string", "enum": ["new", "contacted", "negotiation", "contract", "live"] },
+              "createdAt": { "type": "string", "format": "date-time" },
+              "owner": { "type": "string" },
+              "priority": { "type": "string", "enum": ["high", "medium", "low"] },
+              "cuisine": { "type": "string" }
+            }
+          }
+        },
+        "recentConversions": { "type": "number" },
+        "avgTimeToLiveDays": { "type": "number" },
+        "conversionRate": { "type": "number" }
+      }
+    },
+    "settings": {
+      "type": "object",
+      "properties": {
+        "timezone": { "type": "string" },
+        "locale": { "type": "string" },
+        "notifications": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "label", "description", "enabled"],
+            "properties": {
+              "id": { "type": "string" },
+              "label": { "type": "string" },
+              "description": { "type": "string" },
+              "enabled": { "type": "boolean" }
+            }
+          }
+        },
+        "integrations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name", "status", "lastSync", "icon"],
+            "properties": {
+              "name": { "type": "string" },
+              "status": { "type": "string", "enum": ["connected", "warning", "disconnected"] },
+              "lastSync": { "type": "string", "format": "date-time" },
+              "icon": { "type": "string" }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -5,6 +5,7 @@ const useGitHubPages = deployTarget === "pages";
 
 const nextConfig: NextConfig = {
   output: "export",
+  trailingSlash: true,
   ...(useGitHubPages
     ? {
         basePath: "/boltable",
@@ -17,6 +18,10 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "lh3.googleusercontent.com",
+      },
+      {
+        protocol: "https",
+        hostname: "avatars.slack-edge.com",
       },
     ],
   },

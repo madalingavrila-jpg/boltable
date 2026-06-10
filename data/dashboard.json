@@ -1,0 +1,470 @@
+{
+  "updatedAt": "2026-06-10T13:16:19.000Z",
+  "metrics": {
+    "totalRevenue": {
+      "value": 20412288.25,
+      "previousValue": 19513323.29,
+      "currency": "EUR",
+      "changePercent": 4.6,
+      "period": "30d"
+    },
+    "activePartners": {
+      "value": 4628,
+      "previousValue": 4613,
+      "changePercent": 0.3
+    },
+    "activeCities": 252,
+    "newLeadsMtd": {
+      "value": 1273,
+      "previousValue": 335,
+      "changePercent": 279.7
+    },
+    "marketGrowth": {
+      "value": 4.6
+    }
+  },
+  "weeklyRevenue": [
+    { "day": "Wed", "date": "2026-06-04", "value": 945109.6 },
+    { "day": "Thu", "date": "2026-06-05", "value": 1008411.04 },
+    { "day": "Fri", "date": "2026-06-06", "value": 890866.58 },
+    { "day": "Sat", "date": "2026-06-07", "value": 908833.06 },
+    { "day": "Sun", "date": "2026-06-08", "value": 847582.22 },
+    { "day": "Mon", "date": "2026-06-09", "value": 881637.1 },
+    { "day": "Tue", "date": "2026-06-10", "value": 17327.86 }
+  ],
+  "topCities": [
+    {
+      "city": "Bucharest",
+      "country": "Romania",
+      "revenue": 2511392.16,
+      "growthPercent": -11.7,
+      "avgOrder": 21.99
+    },
+    {
+      "city": "Cluj-Napoca",
+      "country": "Romania",
+      "revenue": 1058744.23,
+      "growthPercent": -10.8,
+      "avgOrder": 19.62
+    },
+    {
+      "city": "Constanta",
+      "country": "Romania",
+      "revenue": 367495.94,
+      "growthPercent": -11.6,
+      "avgOrder": 21.47
+    },
+    {
+      "city": "Iasi",
+      "country": "Romania",
+      "revenue": 350502.13,
+      "growthPercent": -8.5,
+      "avgOrder": 20.13
+    },
+    {
+      "city": "Craiova",
+      "country": "Romania",
+      "revenue": 239015.83,
+      "growthPercent": -15.4,
+      "avgOrder": 19.2
+    },
+    {
+      "city": "Timisoara",
+      "country": "Romania",
+      "revenue": 209682.24,
+      "growthPercent": 4.3,
+      "avgOrder": 19.16
+    },
+    {
+      "city": "Oradea",
+      "country": "Romania",
+      "revenue": 157524.15,
+      "growthPercent": -15.2,
+      "avgOrder": 19.96
+    },
+    {
+      "city": "Brasov",
+      "country": "Romania",
+      "revenue": 156679.52,
+      "growthPercent": -21.9,
+      "avgOrder": 19.6
+    }
+  ],
+  "recentActivities": [
+    {
+      "type": "lead",
+      "title": "\"Mazzo Timisoara\" converted to partner.",
+      "time": "2026-06-10T12:54:41.000Z",
+      "icon": "verified",
+      "meta": "Timisoara • Salesforce"
+    },
+    {
+      "type": "lead",
+      "title": "\"Wurstwagen\" converted to partner.",
+      "time": "2026-06-10T12:49:17.000Z",
+      "icon": "verified",
+      "meta": "Salesforce"
+    },
+    {
+      "type": "lead",
+      "title": "New lead \"SIGNATURE TASTE\" received.",
+      "time": "2026-06-10T12:36:42.000Z",
+      "icon": "group_add",
+      "meta": "Salesforce"
+    },
+    {
+      "type": "lead",
+      "title": "\"Pizza Epic\" converted to partner.",
+      "time": "2026-06-10T12:17:11.000Z",
+      "icon": "verified",
+      "meta": "Salesforce"
+    },
+    {
+      "type": "lead",
+      "title": "\"B3ton Restobar Militari\" converted to partner.",
+      "time": "2026-06-10T12:11:21.000Z",
+      "icon": "verified",
+      "meta": "Salesforce"
+    },
+    {
+      "type": "lead",
+      "title": "\"Aperitif\" converted to partner.",
+      "time": "2026-06-10T11:53:14.000Z",
+      "icon": "verified",
+      "meta": "Timisoara • Salesforce"
+    },
+    {
+      "type": "account",
+      "title": "\"Mazzo Timisoara\" onboarded as restaurant partner.",
+      "time": "2026-06-10T12:54:47.000Z",
+      "icon": "storefront",
+      "meta": "New account"
+    },
+    {
+      "type": "account",
+      "title": "\"NOOK FOOD2GO | NOOK FOOD2GO | Romania\" onboarded as restaurant partner.",
+      "time": "2026-06-10T12:52:04.000Z",
+      "icon": "storefront",
+      "meta": "New account"
+    }
+  ],
+  "partners": [
+    {
+      "id": "p-001",
+      "name": "Mazzo Timisoara",
+      "city": "Timisoara",
+      "country": "Romania",
+      "revenue30d": 89420,
+      "orders30d": 4521,
+      "rating": 4.8,
+      "status": "active",
+      "tier": "enterprise",
+      "cuisine": "Italian"
+    },
+    {
+      "id": "p-002",
+      "name": "Pizza Epic",
+      "city": "Bucharest",
+      "country": "Romania",
+      "revenue30d": 156780,
+      "orders30d": 8234,
+      "rating": 4.7,
+      "status": "active",
+      "tier": "enterprise",
+      "cuisine": "Pizza"
+    },
+    {
+      "id": "p-003",
+      "name": "B3ton Restobar Militari",
+      "city": "Bucharest",
+      "country": "Romania",
+      "revenue30d": 67230,
+      "orders30d": 3102,
+      "rating": 4.6,
+      "status": "active",
+      "tier": "growth",
+      "cuisine": "Grill & Bar"
+    },
+    {
+      "id": "p-004",
+      "name": "Aperitif",
+      "city": "Timisoara",
+      "country": "Romania",
+      "revenue30d": 42100,
+      "orders30d": 1987,
+      "rating": 4.5,
+      "status": "active",
+      "tier": "growth",
+      "cuisine": "Mediterranean"
+    },
+    {
+      "id": "p-005",
+      "name": "Wurstwagen",
+      "city": "Cluj-Napoca",
+      "country": "Romania",
+      "revenue30d": 38950,
+      "orders30d": 2145,
+      "rating": 4.4,
+      "status": "new",
+      "tier": "standard",
+      "cuisine": "Street Food"
+    },
+    {
+      "id": "p-006",
+      "name": "NOOK FOOD2GO",
+      "city": "Bucharest",
+      "country": "Romania",
+      "revenue30d": 28400,
+      "orders30d": 1650,
+      "rating": 4.3,
+      "status": "new",
+      "tier": "standard",
+      "cuisine": "Fast Food"
+    },
+    {
+      "id": "p-007",
+      "name": "La Mama",
+      "city": "Bucharest",
+      "country": "Romania",
+      "revenue30d": 198500,
+      "orders30d": 9120,
+      "rating": 4.9,
+      "status": "active",
+      "tier": "enterprise",
+      "cuisine": "Romanian"
+    },
+    {
+      "id": "p-008",
+      "name": "Sushi Master",
+      "city": "Cluj-Napoca",
+      "country": "Romania",
+      "revenue30d": 54300,
+      "orders30d": 2876,
+      "rating": 4.6,
+      "status": "paused",
+      "tier": "growth",
+      "cuisine": "Japanese"
+    },
+    {
+      "id": "p-009",
+      "name": "Kebab House",
+      "city": "Iasi",
+      "country": "Romania",
+      "revenue30d": 31200,
+      "orders30d": 1890,
+      "rating": 4.2,
+      "status": "active",
+      "tier": "standard",
+      "cuisine": "Kebab"
+    },
+    {
+      "id": "p-010",
+      "name": "SIGNATURE TASTE",
+      "city": "Constanta",
+      "country": "Romania",
+      "revenue30d": 8500,
+      "orders30d": 412,
+      "rating": 0,
+      "status": "new",
+      "tier": "standard",
+      "cuisine": "Fine Dining"
+    }
+  ],
+  "performance": {
+    "kpis": [
+      {
+        "label": "Avg. Order Value",
+        "value": 20.14,
+        "previousValue": 19.87,
+        "unit": "eur",
+        "icon": "shopping_cart"
+      },
+      {
+        "label": "Order Completion Rate",
+        "value": 96.8,
+        "previousValue": 96.2,
+        "unit": "percent",
+        "icon": "percent"
+      },
+      {
+        "label": "Avg. Delivery Time",
+        "value": 28,
+        "previousValue": 30,
+        "unit": "minutes",
+        "icon": "timer"
+      },
+      {
+        "label": "Daily Active Orders",
+        "value": 142850,
+        "previousValue": 138200,
+        "unit": "count",
+        "icon": "speed"
+      }
+    ],
+    "categories": [
+      { "name": "Fast Food", "revenue": 6120000, "sharePercent": 30.0 },
+      { "name": "Pizza", "revenue": 4285000, "sharePercent": 21.0 },
+      { "name": "Romanian Traditional", "revenue": 3268000, "sharePercent": 16.0 },
+      { "name": "Asian", "revenue": 2446000, "sharePercent": 12.0 },
+      { "name": "Grill & BBQ", "revenue": 2041000, "sharePercent": 10.0 },
+      { "name": "Other", "revenue": 2252288, "sharePercent": 11.0 }
+    ],
+    "regions": [
+      { "name": "Romania", "revenue": 14200000, "growthPercent": 4.2, "partners": 3200 },
+      { "name": "Estonia", "revenue": 2100000, "growthPercent": 6.1, "partners": 480 },
+      { "name": "Latvia", "revenue": 1850000, "growthPercent": 3.8, "partners": 390 },
+      { "name": "Lithuania", "revenue": 1620000, "growthPercent": 5.4, "partners": 358 },
+      { "name": "Croatia", "revenue": 642288, "growthPercent": -1.2, "partners": 200 }
+    ]
+  },
+  "onboarding": {
+    "pipeline": [
+      { "stage": "New Leads", "count": 342, "changePercent": 12.4 },
+      { "stage": "Contacted", "count": 218, "changePercent": 8.1 },
+      { "stage": "Negotiation", "count": 94, "changePercent": -3.2 },
+      { "stage": "Contract Signed", "count": 47, "changePercent": 15.6 },
+      { "stage": "Live on Platform", "count": 38, "changePercent": 9.8 }
+    ],
+    "leads": [
+      {
+        "id": "l-001",
+        "company": "SIGNATURE TASTE",
+        "city": "Constanta",
+        "status": "new",
+        "createdAt": "2026-06-10T12:36:42.000Z",
+        "owner": "Andrei P.",
+        "priority": "high",
+        "cuisine": "Fine Dining"
+      },
+      {
+        "id": "l-002",
+        "company": "Burger Lab",
+        "city": "Bucharest",
+        "status": "contacted",
+        "createdAt": "2026-06-09T15:22:00.000Z",
+        "owner": "Maria D.",
+        "priority": "high",
+        "cuisine": "Burgers"
+      },
+      {
+        "id": "l-003",
+        "company": "Taco Fiesta",
+        "city": "Cluj-Napoca",
+        "status": "negotiation",
+        "createdAt": "2026-06-08T09:10:00.000Z",
+        "owner": "Andrei P.",
+        "priority": "medium",
+        "cuisine": "Mexican"
+      },
+      {
+        "id": "l-004",
+        "company": "Green Bowl",
+        "city": "Timisoara",
+        "status": "contract",
+        "createdAt": "2026-06-07T14:45:00.000Z",
+        "owner": "Elena R.",
+        "priority": "medium",
+        "cuisine": "Healthy"
+      },
+      {
+        "id": "l-005",
+        "company": "Pasta Roma",
+        "city": "Iasi",
+        "status": "new",
+        "createdAt": "2026-06-10T08:30:00.000Z",
+        "owner": "Maria D.",
+        "priority": "low",
+        "cuisine": "Italian"
+      },
+      {
+        "id": "l-006",
+        "company": "Dragon Wok",
+        "city": "Bucharest",
+        "status": "contacted",
+        "createdAt": "2026-06-06T11:00:00.000Z",
+        "owner": "Andrei P.",
+        "priority": "high",
+        "cuisine": "Chinese"
+      },
+      {
+        "id": "l-007",
+        "company": "Cafe Central",
+        "city": "Brasov",
+        "status": "negotiation",
+        "createdAt": "2026-06-05T16:20:00.000Z",
+        "owner": "Elena R.",
+        "priority": "medium",
+        "cuisine": "Cafe & Bakery"
+      },
+      {
+        "id": "l-008",
+        "company": "Steak House Premium",
+        "city": "Bucharest",
+        "status": "live",
+        "createdAt": "2026-05-28T10:00:00.000Z",
+        "owner": "Maria D.",
+        "priority": "high",
+        "cuisine": "Steakhouse"
+      }
+    ],
+    "recentConversions": 38,
+    "avgTimeToLiveDays": 14,
+    "conversionRate": 11.1
+  },
+  "settings": {
+    "timezone": "Europe/Bucharest",
+    "locale": "en-GB",
+    "notifications": [
+      {
+        "id": "n-001",
+        "label": "New Lead Alerts",
+        "description": "Notify when a new Salesforce lead is created.",
+        "enabled": true
+      },
+      {
+        "id": "n-002",
+        "label": "Partner Conversion",
+        "description": "Alert when a lead converts to live partner.",
+        "enabled": true
+      },
+      {
+        "id": "n-003",
+        "label": "Revenue Milestones",
+        "description": "Weekly GMV threshold notifications per region.",
+        "enabled": false
+      },
+      {
+        "id": "n-004",
+        "label": "Pipeline Stalled",
+        "description": "Flag leads inactive for more than 7 days.",
+        "enabled": true
+      }
+    ],
+    "integrations": [
+      {
+        "name": "Looker (curated)",
+        "status": "connected",
+        "lastSync": "2026-06-10T13:16:19.000Z",
+        "icon": "analytics"
+      },
+      {
+        "name": "Salesforce CRM",
+        "status": "connected",
+        "lastSync": "2026-06-10T13:15:00.000Z",
+        "icon": "cloud"
+      },
+      {
+        "name": "Slack Notifications",
+        "status": "connected",
+        "lastSync": "2026-06-10T12:00:00.000Z",
+        "icon": "chat"
+      },
+      {
+        "name": "Google Sheets Export",
+        "status": "warning",
+        "lastSync": "2026-06-09T18:30:00.000Z",
+        "icon": "table_chart"
+      }
+    ]
+  }
+}

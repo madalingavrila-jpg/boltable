@@ -19,7 +19,8 @@ app.use("/api", apiRouter);
 
 app.use(
   express.static(config.staticDir, {
-    index: false,
+    index: ["index.html"],
+    extensions: ["html"],
     maxAge: config.isProduction ? "1y" : 0,
     etag: true,
     lastModified: true,
@@ -35,14 +36,29 @@ app.get("/", (_req, res) => {
   res.sendFile(path.join(config.staticDir, "index.html"));
 });
 
+function resolveStaticPath(urlPath: string): string | null {
+  const normalized = urlPath.replace(/\/$/, "") || "/";
+  const candidates = [
+    path.join(config.staticDir, normalized === "/" ? "index.html" : `${normalized.slice(1)}/index.html`),
+    path.join(config.staticDir, normalized === "/" ? "index.html" : `${normalized.slice(1)}.html`),
+  ];
+
+  for (const candidate of candidates) {
+    if (candidate.startsWith(config.staticDir)) {
+      return candidate;
+    }
+  }
+  return null;
+}
+
 app.use((req, res, next) => {
   if (req.path.startsWith("/api")) {
     next();
     return;
   }
 
-  const filePath = path.join(config.staticDir, req.path);
-  if (filePath.startsWith(config.staticDir)) {
+  const filePath = resolveStaticPath(req.path);
+  if (filePath) {
     res.sendFile(filePath, (error) => {
       if (error) {
         res.sendFile(path.join(config.staticDir, "index.html"));
