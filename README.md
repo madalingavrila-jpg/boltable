@@ -1,6 +1,6 @@
-# sfood
+# boltable
 
-Bolt Food Sales Dashboard — a Next.js dashboard for enterprise sales operations, built from the Velocity Grid design system.
+Bolt Food Sales Dashboard — a Next.js dashboard for enterprise sales operations, built from the Velocity Grid design system (Stitch Google export).
 
 ## Getting started
 
