@@ -2,18 +2,33 @@
   "name": "boltable",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "dev:server": "tsx server/src/server.ts",
+    "build": "SFOOD_DEPLOY_TARGET=boltable next build && npm run build:server",
+    "build:server": "tsc -p server/tsconfig.json",
+    "build:pages": "SFOOD_DEPLOY_TARGET=pages next build",
+    "build:boltable": "SFOOD_DEPLOY_TARGET=boltable next build && npm run build:server",
     "start": "next start",
+    "start:server": "node server/dist/server/src/server.js",
     "lint": "next lint"
   },
   "dependencies": {
+    "compression": "^1.8.1",
+    "dotenv": "^16.6.1",
+    "express": "^5.2.1",
+    "helmet": "^8.1.0",
     "next": "^15.3.3",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
   "devDependencies": {
+    "@types/compression": "^1.8.1",
+    "@types/express": "^5.0.0",
     "@types/node": "^22.15.21",
     "@types/react": "^19.1.6",
     "@types/react-dom": "^19.1.5",
@@ -22,6 +37,7 @@
     "netlify-cli": "^26.1.0",
     "postcss": "^8.5.4",
     "tailwindcss": "^3.4.17",
+    "tsx": "^4.19.0",
     "typescript": "^5.8.3",
     "vercel": "^54.11.1"
   }
