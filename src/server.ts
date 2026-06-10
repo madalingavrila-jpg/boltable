@@ -1,9 +1,16 @@
 import compression from "compression";
 import express from "express";
+import fs from "node:fs";
 import helmet from "helmet";
 import path from "node:path";
 import { config } from "./config.js";
 import { apiRouter } from "./routes/api.js";
+
+if (!fs.existsSync(config.staticDir)) {
+  throw new Error(
+    `Static export missing at ${config.staticDir}. Run npm run build first.`,
+  );
+}
 
 const app = express();
 app.set("trust proxy", 1);

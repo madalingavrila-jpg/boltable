@@ -16,7 +16,7 @@ import type {
   PerformanceKpiView,
   PerformanceRegionView,
   TrendDirection,
-} from "../../../types/dashboard.js";
+} from "../../types/dashboard.js";
 
 
 function pctChange(current: number, previous: number): number {

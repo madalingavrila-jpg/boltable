@@ -17,7 +17,7 @@
 
 # production
 /build
-/server/dist
+/dist
 /types/*.js
 /types/*.js.map
 
