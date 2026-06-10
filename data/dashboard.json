@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-10T16:00:00.000Z",
+  "updatedAt": "2026-06-10T13:16:19.000Z",
   "metrics": {
     "totalRevenue": {
       "value": 20412288.25,
@@ -13,11 +13,11 @@
       "previousValue": 4613,
       "changePercent": 0.3
     },
-    "activeCities": 248,
+    "activeCities": 252,
     "newLeadsMtd": {
       "value": 1273,
       "previousValue": 335,
-      "changePercent": 279.7
+      "changePercent": 280.0
     },
     "marketGrowth": {
       "value": 4.6
@@ -142,8 +142,8 @@
     },
     {
       "type": "account",
-      "title": "\"WURSTWAGEN | WURSTWAGEN | Romania\" onboarded as restaurant partner.",
-      "time": "2026-06-10T12:49:32.000Z",
+      "title": "\"NOOK FOOD2GO | NOOK FOOD2GO | Romania\" onboarded as restaurant partner.",
+      "time": "2026-06-10T12:52:04.000Z",
       "icon": "storefront",
       "meta": "New account"
     }
