@@ -4,3 +4,6 @@ schema-version = "0.2"
 
 [[io.buildpacks.group]]
 id = "paketo-buildpacks/nodejs"
+
+[processes]
+  web = "npm run start:server"

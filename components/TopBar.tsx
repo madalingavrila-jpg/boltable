@@ -1,7 +1,10 @@
 import Image from "next/image";
 
+// Slack user U01AHG4UAPR (Bianca-Mihaela Medrea) — profile image from Slack API
 const PROFILE_IMAGE =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuAx2pGCHnx6aFV5oUKIsslaqInoBTS6Ypwx0HuDPw-r_Fh2I9gXghCChHp-vYMQK9ikTiYEaLl5YycbXo_25gHJOudvCLxaOfnd5L4eN_KYF3YbFVwOgCYYcJSkew-4Bgg5Ia4-11iZVNYdQ_qcFvtyDfjYvWRcyYdHdR9ZqgVYL_ebjmJNkA_vZy01uViyUq55bwDAi1H2b785g09l3iNYV5mLL3VhgqyOfx4g8YGCf7LaNOdzaHLKVQvD-aXa7eQtSag5CFjRDTVr";
+  "https://avatars.slack-edge.com/2022-02-05/3074090656545_91cf0a754b6830e9e907_original.png";
+const PROFILE_NAME = "Bianca Medrea";
+const PROFILE_TITLE = "Ops Director";
 
 export function TopBar() {
   return (
@@ -37,17 +40,17 @@ export function TopBar() {
         <div className="group flex cursor-pointer items-center gap-xs">
           <Image
             src={PROFILE_IMAGE}
-            alt="Operational Manager Profile"
+            alt={`${PROFILE_NAME} profile photo`}
             width={40}
             height={40}
             className="rounded-full border-2 border-primary-container"
           />
           <div className="hidden xl:block">
             <p className="text-label-md font-label-md font-bold leading-none">
-              Marcus V.
+              {PROFILE_NAME}
             </p>
             <p className="text-label-md font-label-md text-on-surface-variant opacity-60">
-              Ops Director
+              {PROFILE_TITLE}
             </p>
           </div>
         </div>

@@ -18,6 +18,8 @@
 # production
 /build
 /dist
+/types/*.js
+/types/*.js.map
 
 # misc
 .DS_Store

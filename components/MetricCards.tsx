@@ -1,63 +1,36 @@
-type MetricCard = {
-  icon: string;
-  iconBg: string;
-  iconColor: string;
-  trend: "up" | "down";
-  trendIcon: string;
-  trendValue: string;
-  label: string;
-  value: string;
-  subtitle: string;
+import type { DashboardMetric } from "@/types/dashboard";
+
+type MetricCardsProps = {
+  metrics?: DashboardMetric[];
+  loading?: boolean;
 };
 
-const metrics: MetricCard[] = [
-  {
-    icon: "payments",
-    iconBg: "bg-primary-container/20",
-    iconColor: "text-primary",
-    trend: "up",
-    trendIcon: "trending_up",
-    trendValue: "12.5%",
-    label: "Total Revenue",
-    value: "€4,821,090",
-    subtitle: "vs. €4.28M last month",
-  },
-  {
-    icon: "restaurant",
-    iconBg: "bg-secondary-container/20",
-    iconColor: "text-secondary",
-    trend: "up",
-    trendIcon: "trending_up",
-    trendValue: "8.2%",
-    label: "Active Partners",
-    value: "18,542",
-    subtitle: "Across 42 major cities",
-  },
-  {
-    icon: "group_add",
-    iconBg: "bg-tertiary-container/20",
-    iconColor: "text-tertiary",
-    trend: "down",
-    trendIcon: "trending_down",
-    trendValue: "2.4%",
-    label: "New Leads (MTD)",
-    value: "1,208",
-    subtitle: "Avg. conversion: 14%",
-  },
-  {
-    icon: "insights",
-    iconBg: "bg-primary/10",
-    iconColor: "text-primary",
-    trend: "up",
-    trendIcon: "add",
-    trendValue: "3.1%",
-    label: "Market Growth %",
-    value: "24.8%",
-    subtitle: "Exceeding quarterly target",
-  },
-];
+function SkeletonCard() {
+  return (
+    <div className="glass-card animate-pulse rounded-xl p-md">
+      <div className="mb-sm h-8 w-8 rounded-lg bg-surface-container-high" />
+      <div className="mb-xs h-4 w-24 rounded bg-surface-container-high" />
+      <div className="mb-xs h-8 w-32 rounded bg-surface-container-high" />
+      <div className="h-3 w-40 rounded bg-surface-container-high" />
+    </div>
+  );
+}
 
-export function MetricCards() {
+export function MetricCards({ metrics, loading }: MetricCardsProps) {
+  if (loading && !metrics?.length) {
+    return (
+      <div className="grid grid-cols-1 gap-md md:grid-cols-2 xl:grid-cols-4">
+        {Array.from({ length: 4 }).map((_, index) => (
+          <SkeletonCard key={index} />
+        ))}
+      </div>
+    );
+  }
+
+  if (!metrics?.length) {
+    return null;
+  }
+
   return (
     <div className="grid grid-cols-1 gap-md md:grid-cols-2 xl:grid-cols-4">
       {metrics.map((metric) => (

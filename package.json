@@ -9,7 +9,7 @@
   },
   "scripts": {
     "build": "NODE_ENV=production next build && tsc -p tsconfig.server.json",
-    "start": "node dist/server.js",
+    "start": "node dist/src/server.js",
     "dev": "next dev",
     "dev:server": "tsx src/server.ts",
     "lint": "next lint"
