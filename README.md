@@ -1,17 +1,26 @@
-# sfood
+# boltable / sfood
 
-Bolt Food Sales Dashboard — Next.js UI + Express API for live metrics from **Looker** and **Salesforce**.
+Bolt Food Sales Dashboard — Next.js UI + Express API. Metrics are loaded from **`data/dashboard.json`** (no Looker/Salesforce credentials on the server).
 
-**Live:** https://sfood.boltable.eu
+## Architecture
+
+```
+Cursor (Looker MCP + Salesforce MCP)
+  → update data/dashboard.json
+  → git push
+  → Paketo redeploy (https://sfood.boltable.eu)
+  → GET /api/dashboard
+```
+
+Optional: set `DASHBOARD_SHEET_URL` to a published Google Sheet CSV/JSON URL instead of the repo file.
 
 ## Getting started (local)
 
 ```bash
-npm install
+npm install --cache ./.npm-cache
 cp .env.example .env.local
-# fill LOOKER_* and SALESFORCE_* in .env.local
-npm run build
-npm start
+npm run build:boltable
+npm run start:server
 ```
 
 Open [http://localhost:8080](http://localhost:8080).
@@ -22,62 +31,63 @@ API:
 - `GET /api/status`
 - `GET /api/dashboard`
 
-## Data sources
+## Updating dashboard data (Cursor workflow)
 
-| Widget | Source | Query / field |
-|--------|--------|---------------|
-| Total Revenue | Looker `curated.fact_order_delivery` | `food_provider_price_before_discounts_eur_local`, filter 30 days |
-| Active Partners | Looker | `delivery_vendors_with_orders_finished_local`, 30 days |
-| Active cities subtitle | Looker `curated.dim_city` | `is_food_delivery_active = Yes` |
-| New Leads (MTD) | Salesforce `Lead` | `COUNT() WHERE CreatedDate = THIS_MONTH` |
-| Market Growth % | Looker | 30d GMV vs prior 30d |
-| Weekly Revenue Chart | Looker | daily GMV, 7 days |
-| Top Cities | Looker | GMV by `dim_city.city_name`, 7d vs prior 7d |
-| Recent Activities | Salesforce | recent `Lead` + `Account` records |
+1. In Cursor, use **Looker MCP** and **Salesforce MCP** to query live metrics (see `AGENTS.md`).
+2. Write results to `data/dashboard.json` (schema: `data/dashboard.schema.json`).
+3. Commit and push — Boltable redeploys automatically.
 
-## Boltable deploy
+No login/logout or server-side API credentials required.
 
-Push to `main` on `boltable/sfood` — Paketo auto-builds and deploys.
+## Data file schema (summary)
 
-Required env vars in Boltable portal (see `.env.example`):
+| Section | Description |
+|---------|-------------|
+| `metrics.totalRevenue` | 30-day GMV (EUR) + change vs prior 30 days |
+| `metrics.activePartners` | Active vendors + change |
+| `metrics.activeCities` | Count of active delivery cities |
+| `metrics.newLeadsMtd` | Salesforce leads this month |
+| `metrics.marketGrowth` | 30-day GMV growth % |
+| `weeklyRevenue` | Last 7 days daily GMV |
+| `topCities` | Top cities by 7-day revenue + growth |
+| `recentActivities` | Recent leads and partner accounts |
+
+## Boltable deploy (https://sfood.boltable.eu)
+
+Paketo runs `npm run build` (static export + Express server) and starts `npm run start:server`.
+
+Required env vars:
 
 ```
-LOOKER_BASE_URL=https://bolt.cloud.looker.com
-LOOKER_CLIENT_ID=
-LOOKER_CLIENT_SECRET=
-LOOKER_MODEL=curated
-LOOKER_EXPLORE=fact_order_delivery
-LOOKER_TIMEZONE=Europe/Bucharest
-
-SALESFORCE_LOGIN_URL=https://login.salesforce.com
-SALESFORCE_CLIENT_ID=
-SALESFORCE_CLIENT_SECRET=
-SALESFORCE_USERNAME=
-SALESFORCE_PASSWORD=
-SALESFORCE_SECURITY_TOKEN=
-
+SFOOD_DEPLOY_TARGET=boltable
 SFOOD_CACHE_TTL_MS=60000
 PORT=8080
 ```
 
-Without credentials the dashboard shows placeholders and `/api/status` reports `missing_credentials`.
+Optional:
+
+```
+DASHBOARD_SHEET_URL=https://docs.google.com/spreadsheets/d/e/.../pub?output=csv
+```
+
+## GitHub Pages (static demo)
+
+```bash
+npm run build:pages
+```
+
+Pushes to `main` deploy via `.github/workflows/deploy-pages.yml` to https://madalingavrila-jpg.github.io/boltable/ (no live API on Pages).
 
 ## Scripts
 
-| Command | Description |
-|---|---|
-| `npm run dev` | Next.js dev server (UI) |
-| `npm run build` | Static export + compile Express server |
-| `npm start` | Production server on port 8080 |
-| `npm run dev:server` | Run Express only (requires prior build) |
-| `npm run lint` | ESLint |
+- `npm run dev` — Next.js dev server
+- `npm run dev:server` — Express + API (tsx, requires prior `build:boltable`)
+- `npm run build:boltable` — production build for Boltable
+- `npm run build:pages` — static export with `/boltable` base path
+- `npm run start:server` — serve `out/` + `/api/*`
 
 ## Design reference
 
 - `DESIGN.md` — Velocity Grid design tokens
 - `screens/` — original Stitch HTML exports
-
-## Related repos
-
-- [boltable](https://github.com/madalingavrila-jpg/boltable) — GitHub Pages demo of the same Stitch UI
-- [rosales](https://github.com/boltable/rosales) — deploy structure reference
+- `AGENTS.md` — Cursor agent instructions for refreshing data

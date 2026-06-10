@@ -5,10 +5,7 @@ const navItems = [
   { icon: "person_add", label: "Onboarding", active: false },
 ];
 
-const bottomItems = [
-  { icon: "settings", label: "Settings", variant: "default" as const },
-  { icon: "logout", label: "Logout", variant: "error" as const },
-];
+const bottomItems = [{ icon: "settings", label: "Settings" }];
 
 export function Sidebar() {
   return (
@@ -59,11 +56,7 @@ export function Sidebar() {
           <a
             key={item.label}
             href="#"
-            className={
-              item.variant === "error"
-                ? "mx-xs my-1 flex items-center gap-sm rounded-lg px-md py-sm text-label-md font-label-md text-error transition-all hover:bg-error-container/20"
-                : "mx-xs my-1 flex items-center gap-sm rounded-lg px-md py-sm text-label-md font-label-md text-on-surface-variant transition-all hover:bg-surface-container"
-            }
+            className="mx-xs my-1 flex items-center gap-sm rounded-lg px-md py-sm text-label-md font-label-md text-on-surface-variant transition-all hover:bg-surface-container"
           >
             <span className="material-symbols-outlined">{item.icon}</span>
             {item.label}

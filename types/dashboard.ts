@@ -40,10 +40,44 @@ export type ActivityItem = {
 };
 
 export type DataSourceStatus = {
-  looker: "ok" | "missing_credentials" | "error";
-  salesforce: "ok" | "missing_credentials" | "error";
-  lookerMessage?: string;
-  salesforceMessage?: string;
+  source: "json" | "sheet" | "error";
+  path?: string;
+  message?: string;
+};
+
+export type DashboardRawMetric = {
+  value: number;
+  previousValue?: number;
+  changePercent: number;
+};
+
+export type DashboardRawData = {
+  updatedAt: string;
+  metrics: {
+    totalRevenue: DashboardRawMetric & {
+      currency: string;
+      period: string;
+    };
+    activePartners: DashboardRawMetric;
+    activeCities: number;
+    newLeadsMtd: DashboardRawMetric;
+    marketGrowth: { value: number };
+  };
+  weeklyRevenue: Array<{ day: string; date?: string; value: number }>;
+  topCities: Array<{
+    city: string;
+    country?: string;
+    revenue: number;
+    growthPercent: number;
+    avgOrder?: number;
+  }>;
+  recentActivities: Array<{
+    type: "lead" | "account";
+    title: string;
+    time: string;
+    icon?: string;
+    meta?: string;
+  }>;
 };
 
 export type DashboardModel = {

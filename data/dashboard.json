@@ -1,0 +1,151 @@
+{
+  "updatedAt": "2026-06-10T16:00:00.000Z",
+  "metrics": {
+    "totalRevenue": {
+      "value": 20412288.25,
+      "previousValue": 19513323.29,
+      "currency": "EUR",
+      "changePercent": 4.6,
+      "period": "30d"
+    },
+    "activePartners": {
+      "value": 4628,
+      "previousValue": 4613,
+      "changePercent": 0.3
+    },
+    "activeCities": 248,
+    "newLeadsMtd": {
+      "value": 1273,
+      "previousValue": 335,
+      "changePercent": 279.7
+    },
+    "marketGrowth": {
+      "value": 4.6
+    }
+  },
+  "weeklyRevenue": [
+    { "day": "Wed", "date": "2026-06-04", "value": 945109.6 },
+    { "day": "Thu", "date": "2026-06-05", "value": 1008411.04 },
+    { "day": "Fri", "date": "2026-06-06", "value": 890866.58 },
+    { "day": "Sat", "date": "2026-06-07", "value": 908833.06 },
+    { "day": "Sun", "date": "2026-06-08", "value": 847582.22 },
+    { "day": "Mon", "date": "2026-06-09", "value": 881637.1 },
+    { "day": "Tue", "date": "2026-06-10", "value": 17327.86 }
+  ],
+  "topCities": [
+    {
+      "city": "Bucharest",
+      "country": "Romania",
+      "revenue": 2511392.16,
+      "growthPercent": -11.7,
+      "avgOrder": 21.99
+    },
+    {
+      "city": "Cluj-Napoca",
+      "country": "Romania",
+      "revenue": 1058744.23,
+      "growthPercent": -10.8,
+      "avgOrder": 19.62
+    },
+    {
+      "city": "Constanta",
+      "country": "Romania",
+      "revenue": 367495.94,
+      "growthPercent": -11.6,
+      "avgOrder": 21.47
+    },
+    {
+      "city": "Iasi",
+      "country": "Romania",
+      "revenue": 350502.13,
+      "growthPercent": -8.5,
+      "avgOrder": 20.13
+    },
+    {
+      "city": "Craiova",
+      "country": "Romania",
+      "revenue": 239015.83,
+      "growthPercent": -15.4,
+      "avgOrder": 19.2
+    },
+    {
+      "city": "Timisoara",
+      "country": "Romania",
+      "revenue": 209682.24,
+      "growthPercent": 4.3,
+      "avgOrder": 19.16
+    },
+    {
+      "city": "Oradea",
+      "country": "Romania",
+      "revenue": 157524.15,
+      "growthPercent": -15.2,
+      "avgOrder": 19.96
+    },
+    {
+      "city": "Brasov",
+      "country": "Romania",
+      "revenue": 156679.52,
+      "growthPercent": -21.9,
+      "avgOrder": 19.6
+    }
+  ],
+  "recentActivities": [
+    {
+      "type": "lead",
+      "title": "\"Mazzo Timisoara\" converted to partner.",
+      "time": "2026-06-10T12:54:41.000Z",
+      "icon": "verified",
+      "meta": "Timisoara • Salesforce"
+    },
+    {
+      "type": "lead",
+      "title": "\"Wurstwagen\" converted to partner.",
+      "time": "2026-06-10T12:49:17.000Z",
+      "icon": "verified",
+      "meta": "Salesforce"
+    },
+    {
+      "type": "lead",
+      "title": "New lead \"SIGNATURE TASTE\" received.",
+      "time": "2026-06-10T12:36:42.000Z",
+      "icon": "group_add",
+      "meta": "Salesforce"
+    },
+    {
+      "type": "lead",
+      "title": "\"Pizza Epic\" converted to partner.",
+      "time": "2026-06-10T12:17:11.000Z",
+      "icon": "verified",
+      "meta": "Salesforce"
+    },
+    {
+      "type": "lead",
+      "title": "\"B3ton Restobar Militari\" converted to partner.",
+      "time": "2026-06-10T12:11:21.000Z",
+      "icon": "verified",
+      "meta": "Salesforce"
+    },
+    {
+      "type": "lead",
+      "title": "\"Aperitif\" converted to partner.",
+      "time": "2026-06-10T11:53:14.000Z",
+      "icon": "verified",
+      "meta": "Timisoara • Salesforce"
+    },
+    {
+      "type": "account",
+      "title": "\"Mazzo Timisoara\" onboarded as restaurant partner.",
+      "time": "2026-06-10T12:54:47.000Z",
+      "icon": "storefront",
+      "meta": "New account"
+    },
+    {
+      "type": "account",
+      "title": "\"WURSTWAGEN | WURSTWAGEN | Romania\" onboarded as restaurant partner.",
+      "time": "2026-06-10T12:49:32.000Z",
+      "icon": "storefront",
+      "meta": "New account"
+    }
+  ]
+}

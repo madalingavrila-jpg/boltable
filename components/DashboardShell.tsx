@@ -55,9 +55,8 @@ export function DashboardShell() {
   }, []);
 
   const sourceHint =
-    model?.sources.looker === "missing_credentials" ||
-    model?.sources.salesforce === "missing_credentials"
-      ? "Live data requires LOOKER_* and SALESFORCE_* secrets on the server."
+    model?.sources.source === "error"
+      ? model.sources.message ?? "Dashboard data could not be loaded."
       : null;
 
   return (
@@ -102,14 +101,6 @@ export function DashboardShell() {
         <div className="rounded-xl border border-outline-variant bg-surface-container-low px-md py-sm text-body-md font-body-md text-on-surface-variant">
           {error && <p className="text-error">{error}</p>}
           {sourceHint && <p>{sourceHint}</p>}
-          {model?.sources.lookerMessage && (
-            <p className="mt-1 opacity-80">Looker: {model.sources.lookerMessage}</p>
-          )}
-          {model?.sources.salesforceMessage && (
-            <p className="mt-1 opacity-80">
-              Salesforce: {model.sources.salesforceMessage}
-            </p>
-          )}
         </div>
       )}
 

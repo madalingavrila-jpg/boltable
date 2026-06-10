@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sfood.boltable.eu/data/dashboard.schema.json",
+  "title": "Sfood Dashboard Data",
+  "description": "Static dashboard payload updated via Cursor (Looker + Salesforce MCP) and committed to the repo.",
+  "type": "object",
+  "required": ["updatedAt", "metrics", "weeklyRevenue", "topCities", "recentActivities"],
+  "properties": {
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO-8601 timestamp when this snapshot was generated."
+    },
+    "metrics": {
+      "type": "object",
+      "required": [
+        "totalRevenue",
+        "activePartners",
+        "activeCities",
+        "newLeadsMtd",
+        "marketGrowth"
+      ],
+      "properties": {
+        "totalRevenue": {
+          "type": "object",
+          "required": ["value", "currency", "changePercent", "period"],
+          "properties": {
+            "value": { "type": "number" },
+            "previousValue": { "type": "number" },
+            "currency": { "type": "string", "enum": ["EUR"] },
+            "changePercent": { "type": "number" },
+            "period": { "type": "string", "example": "30d" }
+          }
+        },
+        "activePartners": {
+          "type": "object",
+          "required": ["value", "changePercent"],
+          "properties": {
+            "value": { "type": "number" },
+            "previousValue": { "type": "number" },
+            "changePercent": { "type": "number" }
+          }
+        },
+        "activeCities": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Count of cities with active food delivery."
+        },
+        "newLeadsMtd": {
+          "type": "object",
+          "required": ["value", "changePercent"],
+          "properties": {
+            "value": { "type": "number" },
+            "previousValue": { "type": "number" },
+            "changePercent": { "type": "number" }
+          }
+        },
+        "marketGrowth": {
+          "type": "object",
+          "required": ["value"],
+          "properties": {
+            "value": { "type": "number", "description": "30-day GMV growth percent." }
+          }
+        }
+      }
+    },
+    "weeklyRevenue": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["day", "value"],
+        "properties": {
+          "day": { "type": "string", "description": "Short weekday label (Mon, Tue, …)." },
+          "date": { "type": "string", "format": "date" },
+          "value": { "type": "number", "description": "Daily GMV in EUR." }
+        }
+      }
+    },
+    "topCities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["city", "revenue", "growthPercent"],
+        "properties": {
+          "city": { "type": "string" },
+          "country": { "type": "string" },
+          "revenue": { "type": "number" },
+          "growthPercent": { "type": "number" },
+          "avgOrder": { "type": "number" }
+        }
+      }
+    },
+    "recentActivities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type", "title", "time"],
+        "properties": {
+          "type": { "type": "string", "enum": ["lead", "account"] },
+          "title": { "type": "string" },
+          "time": { "type": "string", "format": "date-time" },
+          "icon": { "type": "string" },
+          "meta": { "type": "string" }
+        }
+      }
+    }
+  }
+}
